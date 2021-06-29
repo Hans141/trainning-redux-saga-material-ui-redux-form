@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
     }
     case taskConstants.ADD_TASK_SUCCESS: {
       const { data } = action.payload;
-      toastSuccess('Thêm mới công việc thành công');
+      toastSuccess('Add new todo successful');
       return {
         ...state,
         listTask: [data].concat(state.listTask),
@@ -78,7 +78,7 @@ const reducer = (state = initialState, action) => {
           data,
           ...listTask.slice(index + 1),
         ];
-        toastSuccess('Cập nhật công việc thành công');
+        toastSuccess('Update todo successful');
         return {
           ...state,
           listTask: newList,
@@ -102,7 +102,7 @@ const reducer = (state = initialState, action) => {
     }
     case taskConstants.DELETE_TASK_SUCCESS: {
       const { data: taskId } = action.payload; // task id
-      toastSuccess('Xóa công việc thành công');
+      toastSuccess('Delete todo successful');
       return {
         ...state,
         listTask: state.listTask.filter(item => item.id !== taskId),

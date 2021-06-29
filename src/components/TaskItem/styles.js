@@ -1,6 +1,7 @@
 const styles = () => ({
   card: {
     marginTop: 10,
+    height: 180,
   },
   cardActions: {
     display: 'flex',

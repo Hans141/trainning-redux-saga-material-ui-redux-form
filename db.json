@@ -11,13 +11,14 @@
     },
     {
       "title": "Learning SASS",
+      "description": "No Description\n",
       "status": 1,
       "id": 6
     },
     {
       "title": "Learning Java",
       "description": "OOP",
-      "status": 0,
+      "status": 1,
       "id": 7
     },
     {
