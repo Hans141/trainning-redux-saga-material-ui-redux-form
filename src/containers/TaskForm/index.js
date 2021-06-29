@@ -61,7 +61,7 @@ class TaskForm extends Component {
           <Grid item md={12}>
             <Field
               id="title"
-              label="Tiêu đề"
+              label="Title"
               className={classes.textField}
               margin="normal"
               name="title"
@@ -71,7 +71,7 @@ class TaskForm extends Component {
           <Grid item md={12}>
             <Field
               id="description"
-              label="Mô tả"
+              label="Description"
               multiline
               rowsMax="4"
               className={classes.textField}
@@ -85,7 +85,7 @@ class TaskForm extends Component {
             <Box display="flex" flexDirection="row-reverse" mt={2}>
               <Box ml={1}>
                 <Button variant="contained" onClick={hideModal}>
-                  Hủy Bỏ
+                  Cancel
                 </Button>
               </Box>
               <Button
@@ -94,7 +94,7 @@ class TaskForm extends Component {
                 color="primary"
                 type="submit"
               >
-                Lưu Lại
+                Save
               </Button>
             </Box>
           </Grid>
@@ -139,10 +139,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const FORM_NAME = 'TASK_MANAGEMENT';
 

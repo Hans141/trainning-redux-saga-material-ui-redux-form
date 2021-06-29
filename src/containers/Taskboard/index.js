@@ -32,7 +32,7 @@ class TaskBoard extends Component {
       changeModalContent,
     } = modalActionCreators;
     showModal();
-    changeModalTitle('Thêm mới công việc');
+    changeModalTitle('Add new todo');
     changeModalContent(<TaskForm />);
   };
 
@@ -59,7 +59,7 @@ class TaskBoard extends Component {
       changeModalContent,
     } = modalActionCreators;
     showModal();
-    changeModalTitle('Cập nhật công việc');
+    changeModalTitle('Update todo');
     changeModalContent(<TaskForm />);
   };
 
@@ -72,17 +72,17 @@ class TaskBoard extends Component {
       changeModalContent,
     } = modalActionCreators;
     showModal();
-    changeModalTitle('Xóa công việc');
+    changeModalTitle('Delete todo');
     changeModalContent(
       <div className={classes.modalDelete}>
         <div className={classes.modalConfirmText}>
-          Bạn chắc chắn muốn xóa{' '}
+          Are u sure delete this todo?{' '}
           <span className={classes.modalConfirmTextBold}>{task.title}</span>?
         </div>
         <Box display="flex" flexDirection="row-reverse" mt={2}>
           <Box ml={1}>
             <Button variant="contained" onClick={hideModal}>
-              Hủy Bỏ
+              Cancel
             </Button>
           </Box>
           <Box>
@@ -91,7 +91,7 @@ class TaskBoard extends Component {
               color="primary"
               onClick={() => this.handleDeleteTask(task)}
             >
-              Đồng Ý
+              Delete
             </Button>
           </Box>
         </Box>
@@ -157,7 +157,7 @@ class TaskBoard extends Component {
           className={classes.button}
           onClick={this.openForm}
         >
-          <AddIcon /> Thêm mới công việc
+          <AddIcon /> Add New Todo
         </Button>
         {this.renderSearchBox()}
         {this.renderBoard()}
@@ -196,8 +196,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withStyles(styles)(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(TaskBoard),
+  connect(mapStateToProps, mapDispatchToProps)(TaskBoard),
 );

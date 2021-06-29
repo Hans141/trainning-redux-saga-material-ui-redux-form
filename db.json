@@ -28,18 +28,6 @@
     },
     {
       "title": "Play game",
-      "description": "With my friend",
-      "status": 0,
-      "id": 9
-    },
-    {
-      "title": "Learning Java",
-      "description": "",
-      "status": 0,
-      "id": 10
-    },
-    {
-      "title": "Play game",
       "description": "FIFA",
       "status": 2,
       "id": 11

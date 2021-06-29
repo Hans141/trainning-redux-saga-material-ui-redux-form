@@ -14,7 +14,7 @@ class SearchBox extends Component {
           className={classes.textField}
           onChange={handleChange}
           margin="normal"
-          placeholder="Nhập từ khóa"
+          placeholder="Enter the keyword"
         />
       </form>
     );

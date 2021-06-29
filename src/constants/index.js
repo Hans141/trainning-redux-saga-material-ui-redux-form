@@ -1,7 +1,7 @@
 import AdminHomePage from '../containers/AdminHomePage';
 import Taskboard from '../containers/Taskboard';
 
-export const API_ENDPOINT = 'http://localhost:3000';
+export const API_ENDPOINT = 'http://localhost:2258';
 
 export const STATUSES = [
   {
@@ -26,13 +26,13 @@ export const STATUS_CODE = {
 
 export const ADMIN_ROUTES = [
   {
-    name: 'Trang quản trị',
+    name: 'Admin Page',
     path: '/',
     exact: true,
     component: AdminHomePage,
   },
   {
-    name: 'Quản lý công việc',
+    name: 'Todo Management',
     path: '/task-board',
     component: Taskboard,
   },
