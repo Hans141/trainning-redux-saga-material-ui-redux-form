@@ -32,12 +32,6 @@ const mapStateToProps = state => {
   };
 };
 
-const withConnect = connect(
-  mapStateToProps,
-  null,
-);
+const withConnect = connect(mapStateToProps, null);
 
-export default compose(
-  withStyles(styles),
-  withConnect,
-)(GlobalLoading);
+export default compose(withStyles(styles), withConnect)(GlobalLoading);

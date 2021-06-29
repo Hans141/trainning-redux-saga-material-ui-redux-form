@@ -50,12 +50,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(
-  withStyles(styles),
-  withConnect,
-)(CommonModal);
+export default compose(withStyles(styles), withConnect)(CommonModal);

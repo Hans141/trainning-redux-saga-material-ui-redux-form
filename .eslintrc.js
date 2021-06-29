@@ -35,7 +35,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 1,
     'react/jsx-first-prop-new-line': 1,
     'prettier/prettier': [
-      'error',
+      1,
       {
         endOfLine: 'auto',
       },
