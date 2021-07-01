@@ -88,6 +88,11 @@ const reducer = (state = initialState, action) => {
         ...state,
       };
     }
+    case taskConstants.CHANGE_STATUS_TASK: {
+      return {
+        ...state,
+      };
+    }
     case taskConstants.UPDATE_TASK_FAILED: {
       const { error } = action.payload;
       toastError(error);

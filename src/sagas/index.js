@@ -37,7 +37,7 @@ import * as taskTypes from './../constants/task';
  */
 function* watchFetchListTaskAction() {
   while (true) {
-    const action = yield take(taskTypes.FETCH_TASK); // Khi FETCH_TASK được dispatch => code từ đây trở xuống sẽ chạy
+    const action = yield take(taskTypes.FETCH_TASK);
     yield put(showLoading());
     const { params } = action.payload;
     const resp = yield call(getList, params);
@@ -116,12 +116,27 @@ function* deleteTaskSaga({ payload }) {
   yield put(hideLoading());
 }
 
+function* changeStatusSaga({ payload }) {
+  const { value } = payload;
+  let { status } = payload.task;
+  const { id, description, title } = payload.task;
+  status += value;
+  const resp = yield call(updateTask, { title, description, status }, id);
+  const { data, status: statusCode } = resp;
+  if (statusCode === STATUS_CODE.SUCCESS) {
+    yield put(updateTaskSuccess(data));
+  } else {
+    yield put(updateTaskFailed(data));
+  }
+}
+
 function* rootSaga() {
   yield fork(watchFetchListTaskAction);
   yield takeLatest(taskTypes.FILTER_TASK, filterTaskSaga);
   yield takeEvery(taskTypes.ADD_TASK, addTaskSaga);
   yield takeLatest(taskTypes.UPDATE_TASK, updateTaskSaga);
   yield takeLatest(taskTypes.DELETE_TASK, deleteTaskSaga);
+  yield takeLatest(taskTypes.CHANGE_STATUS_TASK, changeStatusSaga);
 }
 
 export default rootSaga;

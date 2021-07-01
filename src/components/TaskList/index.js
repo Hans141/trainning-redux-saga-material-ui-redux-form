@@ -8,7 +8,14 @@ import TaskItem from '../TaskItem';
 
 class TaskList extends Component {
   render() {
-    const { classes, tasks, status, onClickEdit, onClickDelete } = this.props;
+    const {
+      classes,
+      tasks,
+      status,
+      onClickEdit,
+      onClickDelete,
+      onChangeStatus,
+    } = this.props;
     return (
       <Grid item md={4} xs={12} key={status.value}>
         <Box mt={2} mb={2}>
@@ -23,6 +30,8 @@ class TaskList extends Component {
                 key={task.id}
                 onClickEdit={() => onClickEdit(task)}
                 onClickDelete={() => onClickDelete(task)}
+                onChangeStatusUp={() => onChangeStatus(task, 1)}
+                onChangeStatusDown={() => onChangeStatus(task, -1)}
               />
             );
           })}
@@ -38,6 +47,7 @@ TaskList.propTypes = {
   status: PropTypes.object,
   onClickEdit: PropTypes.func,
   onClickDelete: PropTypes.func,
+  onChangeStatus: PropTypes.func,
 };
 
 export default withStyles(styles)(TaskList);

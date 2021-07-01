@@ -63,6 +63,12 @@ class TaskBoard extends Component {
     changeModalContent(<TaskForm />);
   };
 
+  handleChangeStatus = (task, value) => {
+    const { taskActionCreators } = this.props;
+    const { changeStatusTask } = taskActionCreators;
+    changeStatusTask(task, value);
+  };
+
   showModalDeleteTask = task => {
     const { modalActionCreators, classes } = this.props;
     const {
@@ -122,6 +128,7 @@ class TaskBoard extends Component {
               status={status}
               onClickEdit={this.handleEditTask}
               onClickDelete={this.showModalDeleteTask}
+              onChangeStatus={this.handleChangeStatus}
             />
           );
         })}
@@ -173,6 +180,7 @@ TaskBoard.propTypes = {
     filterTask: PropTypes.func,
     setTaskEditing: PropTypes.func,
     deleteTask: PropTypes.func,
+    changeStatusTask: PropTypes.func,
   }),
   modalActionCreators: PropTypes.shape({
     showModal: PropTypes.func,
